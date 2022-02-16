@@ -14,17 +14,27 @@ function addTask() {
   });
 }
 
-function changeBackgroundColor() {
-  
+function removeItemsBackgroundColor(items) {
+  for (let index = 0; index < items.length; index += 1) {
+    const element = items[index];
+
+    element.style.backgroundColor = '';
+  }
+}
+
+function changeItemsBackgroundColor() {
+
   orderedList.addEventListener('click', (event) => {
+    const listItems = document.querySelectorAll('.item');
     const element = event.target;
     const hasClassNameItem = element.className.includes('item');
 
     if (hasClassNameItem) {
+      removeItemsBackgroundColor(listItems);
       element.style.backgroundColor = 'grey';
     }
   });
 }
 
-changeBackgroundColor();
+changeItemsBackgroundColor();
 addTask();
