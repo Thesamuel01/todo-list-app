@@ -23,7 +23,6 @@ function removeItemsBackgroundColor(items) {
 }
 
 function changeItemsBackgroundColor() {
-
   orderedList.addEventListener('click', (event) => {
     const listItems = document.querySelectorAll('.item');
     const element = event.target;
@@ -36,5 +35,17 @@ function changeItemsBackgroundColor() {
   });
 }
 
-changeItemsBackgroundColor();
+function putLineThroughInTheText() {
+  orderedList.addEventListener('dblclick', (event) => {
+    const element = event.target;
+    const hasClassNameItem = element.className.includes('item');
+
+    if (hasClassNameItem) {
+      element.classList.toggle('completed');
+    }
+  });
+}
+
 addTask();
+changeItemsBackgroundColor();
+putLineThroughInTheText();
