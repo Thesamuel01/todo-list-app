@@ -10,6 +10,12 @@ function getListItems() {
   return listItems;
 }
 
+function getSelectedTask() {
+  const selectedTask = document.querySelector('.selected');
+
+  return selectedTask;
+}
+
 function updateLocalStorage() {
   const list = getListItems();
   const history = [];
@@ -57,7 +63,7 @@ function changeItemsBackgroundColor() {
   list.addEventListener('click', (event) => {
     const element = event.target;
     const hasTheClassItem = element.className.includes('item');
-    const oldSelectedTask = document.querySelector('.selected');
+    const oldSelectedTask = getSelectedTask();
 
     if (hasTheClassItem) {
       if (oldSelectedTask !== null) {
@@ -139,7 +145,7 @@ function moveTaskUp() {
   const moveUpButton = document.querySelector('#mover-cima');
 
   moveUpButton.addEventListener('click', () => {
-    const selectedElement = document.querySelector('.selected');
+    const selectedElement = getSelectedTask();
     const isAnyItemSelected = selectedElement !== null;
     const up = 'up';
 
@@ -153,12 +159,25 @@ function moveTaskDown() {
   const moveDownButton = document.querySelector('#mover-baixo');
 
   moveDownButton.addEventListener('click', () => {
-    const selectedElement = document.querySelector('.selected');
+    const selectedElement = getSelectedTask();
     const isAnyItemSelected = selectedElement !== null;
     const down = 'down';
 
     if (isAnyItemSelected) {
       changePosition(selectedElement, down);
+    }
+  });
+}
+
+function clearSelectedTask() {
+  const clearSelectedTaskButton = document.querySelector('#remover-selecionado');
+
+  clearSelectedTaskButton.addEventListener('click', () => {
+    const selectedElement = getSelectedTask();
+    const isAnyItemSelected = selectedElement !== null;
+
+    if (isAnyItemSelected) {
+      selectedElement.remove();
     }
   });
 }
@@ -185,3 +204,4 @@ clearCompletedTasks();
 saveTasks();
 moveTaskUp();
 moveTaskDown();
+clearSelectedTask();
