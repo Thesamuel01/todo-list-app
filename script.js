@@ -46,6 +46,21 @@ function putLineThroughInTheText() {
   });
 }
 
+function clearTask() {
+  const clearButton = document.querySelector('#apaga-tudo');
+
+  clearButton.addEventListener('click', () => {
+    const listItems = document.querySelectorAll('.item');
+
+    for (let index = 0; index < listItems.length; index++) {
+      const element = listItems[index];
+
+      orderedList.removeChild(element);
+    }
+  });
+}
+
 addTask();
 changeItemsBackgroundColor();
 putLineThroughInTheText();
+clearTask();
