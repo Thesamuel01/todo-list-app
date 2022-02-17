@@ -1,4 +1,14 @@
-const orderedList = document.querySelector('#lista-tarefas');
+function getOrdereListElement() {
+  const orderedList = document.querySelector('#lista-tarefas');
+
+  return orderedList;
+}
+
+function getListItems() {
+  const listItems = document.querySelectorAll('.item');
+
+  return listItems;
+}
 
 function addTask() {
   const button = document.querySelector('#criar-tarefa');
@@ -6,10 +16,11 @@ function addTask() {
   button.addEventListener('click', () => {
     const input = document.querySelector('#texto-tarefa');
     const li = document.createElement('li');
+    const list = getOrdereListElement();
 
     li.classList.add('item');
     li.innerHTML = input.value;
-    orderedList.appendChild(li);
+    list.appendChild(li);
     input.value = '';
   });
 }
@@ -23,12 +34,14 @@ function removeItemsBackgroundColor(items) {
 }
 
 function changeItemsBackgroundColor() {
-  orderedList.addEventListener('click', (event) => {
-    const listItems = document.querySelectorAll('.item');
-    const element = event.target;
-    const hasClassNameItem = element.className.includes('item');
+  const list = getOrdereListElement();
 
-    if (hasClassNameItem) {
+  list.addEventListener('click', (event) => {
+    const listItems = getListItems();
+    const element = event.target;
+    const hasTheClassItem = element.className.includes('item');
+
+    if (hasTheClassItem) {
       removeItemsBackgroundColor(listItems);
       element.style.backgroundColor = 'grey';
     }
@@ -36,26 +49,46 @@ function changeItemsBackgroundColor() {
 }
 
 function putLineThroughInTheText() {
-  orderedList.addEventListener('dblclick', (event) => {
+  const list = getOrdereListElement();
+  list.addEventListener('dblclick', (event) => {
     const element = event.target;
-    const hasClassNameItem = element.className.includes('item');
+    const hasTheClassItem = element.className.includes('item');
 
-    if (hasClassNameItem) {
+    if (hasTheClassItem) {
       element.classList.toggle('completed');
     }
   });
 }
 
-function clearTask() {
+function clearAllTask() {
   const clearButton = document.querySelector('#apaga-tudo');
+  const list = getOrdereListElement();
 
   clearButton.addEventListener('click', () => {
-    const listItems = document.querySelectorAll('.item');
+    const listItems = getListItems();
 
-    for (let index = 0; index < listItems.length; index++) {
+    for (let index = 0; index < listItems.length; index += 1) {
       const element = listItems[index];
 
-      orderedList.removeChild(element);
+      list.removeChild(element);
+    }
+  });
+}
+
+function clearCompletedTasks() {
+  const clearCompletedTasksButton = document.querySelector('#remover-finalizados');
+  const list = getOrdereListElement();
+
+  clearCompletedTasksButton.addEventListener('click', () => {
+    const listItems = getListItems();
+
+    for (let index = 0; index < listItems.length; index += 1) {
+      const element = listItems[index];
+      const hasTheClassCompleted = element.className.includes('completed');
+
+      if (hasTheClassCompleted) {
+        list.removeChild(element);
+      }
     }
   });
 }
@@ -63,4 +96,5 @@ function clearTask() {
 addTask();
 changeItemsBackgroundColor();
 putLineThroughInTheText();
-clearTask();
+clearAllTask();
+clearCompletedTasks();
