@@ -1,11 +1,11 @@
 .completed {
-    text-decoration: line-through solid black;
+  text-decoration: line-through solid black;
 }
 
 .item:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .selected {
-    background-color: grey;
+  background-color: grey;
 }

@@ -122,6 +122,47 @@ function saveTasks() {
   });
 }
 
+function changePosition(item, action) {
+  // Trecho baseado na documentacao link: https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
+  const selectedTask = item;
+  const adjcentTask = selectedTask.nextElementSibling;
+  const previousTask = selectedTask.previousElementSibling;
+
+  if (action === 'up' && previousTask !== null) {
+    previousTask.insertAdjacentElement('beforebegin', selectedTask);
+  } else if (action === 'down' && adjcentTask !== null) {
+    adjcentTask.insertAdjacentElement('afterend', selectedTask);
+  }
+}
+
+function moveTaskUp() {
+  const moveUpButton = document.querySelector('#mover-cima');
+
+  moveUpButton.addEventListener('click', () => {
+    const selectedElement = document.querySelector('.selected');
+    const isAnyItemSelected = selectedElement !== null;
+    const up = 'up';
+
+    if (isAnyItemSelected) {
+      changePosition(selectedElement, up);
+    }
+  });
+}
+
+function moveTaskDown() {
+  const moveDownButton = document.querySelector('#mover-baixo');
+
+  moveDownButton.addEventListener('click', () => {
+    const selectedElement = document.querySelector('.selected');
+    const isAnyItemSelected = selectedElement !== null;
+    const down = 'down';
+
+    if (isAnyItemSelected) {
+      changePosition(selectedElement, down);
+    }
+  });
+}
+
 window.onload = () => {
   if (localStorage.length !== 0) {
     const list = getOrdereListElement();
@@ -142,3 +183,5 @@ putLineThroughInTheText();
 clearAllTask();
 clearCompletedTasks();
 saveTasks();
+moveTaskUp();
+moveTaskDown();
