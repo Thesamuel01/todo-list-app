@@ -47,25 +47,24 @@ function addTask() {
   });
 }
 
-function removeItemsBackgroundColor(items) {
-  for (let index = 0; index < items.length; index += 1) {
-    const element = items[index];
-
-    element.style.backgroundColor = '';
-  }
+function removeBackgroundColor(selectedTask) {
+  selectedTask.classList.toggle('selected');
 }
 
 function changeItemsBackgroundColor() {
   const list = getOrdereListElement();
 
   list.addEventListener('click', (event) => {
-    const listItems = getListItems();
     const element = event.target;
     const hasTheClassItem = element.className.includes('item');
+    const oldSelectedTask = document.querySelector('.selected');
 
     if (hasTheClassItem) {
-      removeItemsBackgroundColor(listItems);
-      element.style.backgroundColor = 'grey';
+      if (oldSelectedTask !== null) {
+        removeBackgroundColor(oldSelectedTask);
+      }
+
+      element.classList.toggle('selected');
     }
   });
 }
