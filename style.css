@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(10, 21, 90);
+  background-color: rgb(10 , 21 , 90);
   color: white;
   font-family: sans-serif;
   margin: 0;
@@ -11,8 +11,8 @@ body {
   width: 100vw;
 }
 
-#criar-tarefa{
-  background-color: rgb(209, 3, 252);
+#criar-tarefa {
+  background-color: rgb(209 , 3 , 252);
   border: none;
   border-radius: 5px;
   color: white;
@@ -24,12 +24,12 @@ body {
 }
 
 #criar-tarefa:hover {
-  background-color: rgb(223, 87, 250);
+  background-color: rgb(223 , 87 , 250);
   cursor: pointer;
 }
 
 #funcionamento {
-  color: rgb(187, 194, 216);
+  color: rgb(187 , 194 , 216);
   font-style: italic;
   margin: 0 0 15px 0;
 }
@@ -48,7 +48,7 @@ body {
 }
 
 #remover-selecionado {
-  background-color: rgb(209, 3, 252);
+  background-color: rgb(209 , 3 , 252);
   border: none;
   border-radius: 5px;
   color: white;
@@ -59,19 +59,19 @@ body {
 }
 
 #remover-selecionado:hover {
-  background-color: rgb(223, 87, 250);
+  background-color: rgb(223 , 87 , 250);
   cursor: pointer;
 }
 
 #todo_container {
-  background-color: rgb(61, 71, 175);
+  background-color: rgb(61 , 71 , 175);
   border-radius: 40px;
   margin-top: 100px;
   padding: 50px;
 }
 
 .button {
-  background-color: rgb(125, 128, 170);
+  background-color: rgb(125 , 128 , 170);
   border: none;
   border-radius: 5px;
   box-sizing: border-box;
@@ -83,7 +83,7 @@ body {
 }
 
 .button:hover {
-  background-color: rgb(154, 155, 173);
+  background-color: rgb(154 , 155 , 173);
   cursor: pointer;
 }
 
