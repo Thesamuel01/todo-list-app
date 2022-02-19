@@ -1,3 +1,92 @@
+body {
+  background-color: rgb(10, 21, 90);
+  color: white;
+  font-family: sans-serif;
+  margin: 0;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+#criar-tarefa{
+  background-color: rgb(209, 3, 252);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+  font-weight: 900;
+  height: 30px;
+  line-height: 0px;
+  vertical-align: middle;
+}
+
+#criar-tarefa:hover {
+  background-color: rgb(223, 87, 250);
+  cursor: pointer;
+}
+
+#funcionamento {
+  color: rgb(187, 194, 216);
+  font-style: italic;
+  margin: 0 0 15px 0;
+}
+
+#texto-tarefa {
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 30px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+#title {
+  margin: 0 0 25px 0;
+}
+
+#remover-selecionado {
+  background-color: rgb(209, 3, 252);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 15px;
+  font-weight: 900;
+  height: 25px;
+  width: 25px;
+}
+
+#remover-selecionado:hover {
+  background-color: rgb(223, 87, 250);
+  cursor: pointer;
+}
+
+#todo_container {
+  background-color: rgb(61, 71, 175);
+  border-radius: 40px;
+  margin-top: 100px;
+  padding: 50px;
+}
+
+.button {
+  background-color: rgb(125, 128, 170);
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: white;
+  font-size: 15px;
+  font-weight: 900;
+  height: 25px;
+  margin-left: 4px;
+}
+
+.button:hover {
+  background-color: rgb(154, 155, 173);
+  cursor: pointer;
+}
+
 .completed {
   text-decoration: line-through solid black;
 }

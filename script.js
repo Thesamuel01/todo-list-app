@@ -35,6 +35,7 @@ function createTask(task) {
   const li = document.createElement('li');
 
   li.classList.add('item');
+  li.classList.add('buttons');
   li.innerHTML = task;
 
   return li;
